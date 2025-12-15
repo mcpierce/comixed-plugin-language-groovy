@@ -1,0 +1,22 @@
+import org.comixedproject.model.plugin.LibraryPluginProperty
+
+
+// Returns the name of the plugin, displayed in the plugin menu and plugin tab
+def plugin_name()       { return "Example" }
+
+// Returns the version of the plugin, displayed in the plugin tab
+def plugin_version()    { return "1.0.2" }
+
+/* Returns the list of properties that will be populated when the plugin runs
+ * The properties have a name, a length, and a default value. When the plugin
+ * is configured, these default values can be overwritten with new values.
+ */
+def plugin_properties() {
+ var property1 = LibraryPluginProperty.createProperty("test_property_1", 32, "")
+ var property2 = LibraryPluginProperty.createRequiredProperty("test_property_2", 64, "default value")
+
+ return [property1, property2]
+ }
+
+// here is where the actual plugin functionality is
+print "Hello World!"
